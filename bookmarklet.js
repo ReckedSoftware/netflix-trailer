@@ -29,8 +29,10 @@ javascript:(function(){
       //alert($j('h1.title').text());
       var title = $j('h1.title').text();
       title = title.replace(/ /g, '+');
+      var year = $j('span.year').text();
       console.log(title);
-      var url = 'http://gdata.youtube.com/feeds/api/videos?q='+title+'+trailer&start-index=1&max-results=1&alt=json';
+      console.log(year);
+      var url = 'http://gdata.youtube.com/feeds/api/videos?q='+title+'+'+year+'+trailer&start-index=1&max-results=1&alt=json';
       console.log(url);
       $j.getJSON(url, function (result) {
         var videoURL = result.feed.entry[0].link[0].href;
